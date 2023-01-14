@@ -3,6 +3,8 @@
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "compilerOptions": {
     "baseUrl": ".",
+    "isolatedModules": false,
+    "lib": ["dom", "esnext"],
     "paths": {
       "@/*": ["./src/*"]
     }

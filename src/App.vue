@@ -14,6 +14,7 @@ const msg = ref('123456')
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/rxjs">rxjs</RouterLink>
       </nav>
     </div>
   </header>

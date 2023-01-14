@@ -9,7 +9,7 @@ const copy: Directive = {
   beforeMount(el, binding: DirectiveBinding) {
     // 实时更新最新的目标内容
     el.targetContent = binding.value;
-    el.addEventListener('click', () => copyTextArea(el.targetContent));
+    el.addEventListener('click', () => copyTextArea(el.targetContent).then());
   },
   updated(el, binding: DirectiveBinding) {
     el.targetContent = binding.value;

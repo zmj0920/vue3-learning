@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "pinia": "^2.0.28",
+    "rxjs": "^7.8.0",
     "vite-plugin-compression": "^0.5.1",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
