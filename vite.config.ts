@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'node:path'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'node:path';
 //@ts-ignore
-import viteCompression from 'vite-plugin-compression'
+import viteCompression from 'vite-plugin-compression';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,12 +24,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  css:{
-    preprocessorOptions:{
-      css:{
-        additionalData:'@import "@/assets/mian.css";'
-      }
-    }
+  css: {
+    preprocessorOptions: {
+      css: {
+        additionalData: '@import "@/assets/mian.css";',
+      },
+    },
   },
   //启动服务配置
   server: {
@@ -37,7 +37,8 @@ export default defineConfig({
     port: 8000,
     open: true,
     https: false,
-    proxy: {}
+    proxy: {},
+    hmr: true,
   },
   // 生产环境打包配置
   //去除 console debugger
@@ -49,4 +50,4 @@ export default defineConfig({
       },
     },
   },
-})
+});

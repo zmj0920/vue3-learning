@@ -1,69 +1,35 @@
 <template>
-	<h1>当前求和为:{{ sum }}</h1>
-	<button @click="sum++">点我加一</button>
-
-	<hr />
+  <div>
+    <Dialog :show="show" @pageFn="pageFn"></Dialog>
+    <div>{{ name }}</div>
+    <Props :name="name1" :age="age" @pMSg="func" :data="123">
+      <template #title>
+        <div> aaa我是插槽里的标题<span>11111</span> </div>
+      </template>
+    </Props>
+  </div>
 </template>
 
-<script lang="ts">
-import { ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue';
-export default {
-	name: 'Demo',
-	setup() {
-		let sum = ref(0);
+<script setup lang="ts">
+  import { provide, ref } from 'vue';
+  import Dialog from '../components/Dialog.vue';
+  import Props from '../components/Props.vue';
+  const show = ref(false);
+  const count = ref(0);
+  const color = ref('#000');
+  provide('count', count);
+  provide('color', color);
 
-		//通过组合式api的形式去使用生命周期钩子
-		///setup()相当于beforeCreate()和created()
-		onBeforeMount(() => { console.log('----beforeMount----'); });
-		onMounted(() => { console.log('-----mounted-----'); });
-		onBeforeUpdate(() => { console.log('-----beforeUpdate-----') });
-		onUpdated(() => { console.log('-----updated-----'); });
-		onBeforeUnmount(() => { console.log('-----beforeUnmount----'); });
-		onUnmounted(() => { console.log('-----unmounted----'); })
-
-		console.log('-----setup----')
-
-		//返回一个对象
-		return {
-			sum,
-		}
-	},
-	//使用配置项的形式使用生命周期钩子
-	// beforeCreate() {
-	//   console.log('----beforeCreate!!----'); 
-	//组件实例被创建之初
-	// },
-	// created() {
-	//   console.log('----created!!----');
-	// 组件实例已经完全创建
-	// },
-	// beforeMount() {
-	//   console.log('----beforeMount----');
-	// 组件挂载之前
-	// },
-	// mounted() {
-	//   console.log('-----mounted-----');
-	// 组件挂载到实例上去之后
-	// },
-	// beforeUpdate() {
-	//   console.log('-----beforeUpdate-----')
-	// 组件数据发生变化，更新之前
-	// },
-	// updated() {
-	//   console.log('-----updated-----');
-	// 数据数据更新之后
-	// },
-	// beforeUnmount() {
-	//   console.log('-----beforeUnmount----');
-	// 组件实例销毁之前
-	// },
-	// unmounted() {
-	//   console.log('-----unmounted----');
-	// 组件实例销毁之后
-	// }
-}
+  const pageFn = (val: boolean) => {
+    show.value = val;
+    color.value = '#fffff';
+  };
+  let name = ref('itclanCoder');
+  //在逻辑中,想要读取name的值,需要.value方式
+  console.log(name.value);
+  let age = ref(19);
+  let name1 = ref('小明2');
+  const func = (e: any) => {
+    console.log('子组件发送过来的信息', e);
+  };
 </script>
-
-<style>
-
-</style>

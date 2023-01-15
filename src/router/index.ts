@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import Home from '../views/Home.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: Home,
     },
     {
       path: '/about',
@@ -20,10 +20,32 @@ const router = createRouter({
     {
       path: '/rxjs',
       name: 'rxjs',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/Rxjs.vue'),
+    },
+    {
+      path: '/copy',
+      name: 'copy',
+      component: () => import('../views/Copy.vue'),
+    },
+    {
+      path: '/ellipsis',
+      name: 'ellipsis',
+      component: () => import('../views/TextEllipsis.vue'),
+    },
+    {
+      path: '/life-cycle',
+      name: 'life-cycle',
+      component: () => import('../views/LifeCycle.vue'),
+    },
+    {
+      path: '/slot',
+      name: 'slot',
+      component: () => import('../views/Slots.vue'),
+    },
+    {
+      path: '/transfer-value',
+      name: 'transfer-value',
+      component: () => import('../views/TransferValue.vue'),
     },
   ],
 });
