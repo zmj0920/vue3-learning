@@ -5,14 +5,21 @@
 <template>
   <div>
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/rxjs">rxjs</RouterLink>
+      <RouterLink to="/">rxjs</RouterLink>
       <RouterLink to="/copy">copy</RouterLink>
       <RouterLink to="/ellipsis">Ellipsis</RouterLink>
       <RouterLink to="/life-cycle">生命周期</RouterLink>
       <RouterLink to="/slot">Slot</RouterLink>
       <RouterLink to="/transfer-value">传值</RouterLink>
+      <RouterLink to="/provide-inject">依赖注入</RouterLink>
+      <RouterLink to="/watch">Watch</RouterLink>
+      <RouterLink to="/watch-effect">WatchEffect</RouterLink>
+      <RouterLink to="/computed">Computed 计算属性</RouterLink>
+      <RouterLink to="/hooks">自定义Hooks函数</RouterLink>
+      <RouterLink to="/readOnly">ReadOnly</RouterLink>
+      <RouterLink to="/shallowRef">ShallowRef</RouterLink>
+      <RouterLink to="/toraw">toRaw</RouterLink>
+      
     </nav>
   </div>
   <div>

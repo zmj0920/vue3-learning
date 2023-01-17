@@ -1,24 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
-    },
-    {
-      path: '/rxjs',
       name: 'rxjs',
       component: () => import('../views/Rxjs.vue'),
     },
@@ -46,6 +31,46 @@ const router = createRouter({
       path: '/transfer-value',
       name: 'transfer-value',
       component: () => import('../views/TransferValue.vue'),
+    },
+    {
+      path: '/provide-inject',
+      name: 'provide-inject',
+      component: () => import('../views/Provide.vue'),
+    },
+    {
+      path: '/watch',
+      name: 'watch',
+      component: () => import('../views/Watch.vue'),
+    },
+    {
+      path: '/watch-effect',
+      name: 'watch-effect',
+      component: () => import('../views/WatchEffect.vue'),
+    },
+    {
+      path: '/computed',
+      name: 'computed',
+      component: () => import('../views/Computed.vue'),
+    },
+    {
+      path: '/hooks',
+      name: 'hooks',
+      component: () => import('../views/Hooks.vue'),
+    },
+    {
+      path: '/readOnly',
+      name: 'readOnly',
+      component: () => import('../views/ReadOnly.vue'),
+    },
+    {
+      path: '/shallowRef',
+      name: 'shallowRef',
+      component: () => import('../views/ShallowRef.vue'),
+    },
+    {
+      path: '/toraw',
+      name: 'toraw',
+      component: () => import('../views/ToRaw.vue'),
     },
   ],
 });

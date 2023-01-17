@@ -37,6 +37,21 @@
         console.log('-----unmounted----');
       });
 
+      // 这个钩子仅在开发模式下可用，且在服务器端渲染期间不会被调用。
+      //     onRenderTracked((e) => {
+      //       console.log(e);
+      //       console.log("状态跟踪1");
+      //       // 只要页面有update的情况，他就会跟踪
+      //     });
+
+      // 注册一个调试钩子，当响应式依赖的变更触发了组件渲染时调用。
+      // 这个钩子仅在开发模式下可用，且在服务器端渲染期间不会被调用。
+      //     onRenderTriggered((e) => {
+      //       console.log(e);
+      //       console.log("状态跟踪2");
+      //       // 当值改变后会有新值和旧值
+      //     });
+
       console.log('-----setup----');
 
       //返回一个对象

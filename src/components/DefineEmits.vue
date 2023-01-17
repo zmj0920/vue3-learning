@@ -12,7 +12,11 @@
       default: false,
     },
   });
-  const emit = defineEmits(['pageFn']); //定义一个变量来接收父组件传来的方法
+
+  const emit = defineEmits<{
+    (event: 'pageFn', value: boolean): void;
+  }>();
+
   const butFn = () => {
     emit('pageFn', true);
 
