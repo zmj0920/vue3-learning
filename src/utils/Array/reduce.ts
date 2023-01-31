@@ -6,7 +6,7 @@
  * @return {[type]}             [Number]
  */
 
-export function reduce(arr, callback, initValue) {
+export function reduce<T>(arr: T[], callback: Function, initValue: number) {
   // 声明变量 默认是 0
   let result = initValue || 0;
   // 执行回调

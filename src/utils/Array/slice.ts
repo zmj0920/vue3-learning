@@ -1,4 +1,4 @@
-export function slice(arr, begin, end) {
+export function slice<T>(arr: T[], begin: number, end: number) {
   // 若arr.length  = 0;
   if (arr.length === 0) {
     return [];

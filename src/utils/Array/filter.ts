@@ -4,7 +4,7 @@
  * @param  {Function} callback [回调函数]
  * @return {[type]}            [Array]
  */
-export function filter(arr, callback) {
+export function filter<T>(arr: T[], callback: Function) {
   // 声明空数组
   let result = [];
   // 变量数组

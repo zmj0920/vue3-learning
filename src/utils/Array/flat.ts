@@ -3,7 +3,7 @@
  * @param  {[type]} array [description]
  * @return {[type]}     [description]
  */
-export function flat(array){
+export function flat(array: any) {
   let arr = [].concat(...array)
   while (arr.some(item => Array.isArray(item))) {
     arr = [].concat(...arr)

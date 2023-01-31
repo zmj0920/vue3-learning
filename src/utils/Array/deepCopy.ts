@@ -4,8 +4,8 @@
  * @param  {Map}    [map=new Map(]         [description]
  * @return {[type]}          [description]
  */
-export function deepCopy(target, map=new Map()) {
-  if (target!==null && typeof target==='object') {
+export function deepCopy(target: any, map = new Map()) {
+  if (target !== null && typeof target === 'object') {
     // 从缓存容器中读取克隆对象
     let cloneTarget = map.get(target)
     // 如果存在, 返回前面缓存的克隆对象

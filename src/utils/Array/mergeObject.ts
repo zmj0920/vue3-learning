@@ -3,11 +3,11 @@
  * @param  {[type]} objs [description]
  * @return {[type]}      [description]
  */
-export function mergeObject(...objs) {
-  const result = {}
+export function mergeObject<T>(...objs: T[]) {
+  const result: Record<any, any> = {}
 
   // 遍历objs
-  objs.forEach(obj => {
+  objs.forEach((obj: any) => {
     Object.keys(obj).forEach(key => {
       // 如果result还没有key值属性
       if (!result.hasOwnProperty(key)) {

@@ -4,7 +4,7 @@
  * @param  {Function} callback [回调函数]
  * @return {[type]}            [Array]
  */
-export function map(arr, callback) {
+export function map<T>(arr: T[], callback: Function) {
   // 声明一个空数组
   let result = [];
   // 变量数组

@@ -4,7 +4,7 @@
  * @param  {Function} callback [description]
  * @return {[type]}            [description]
  */
-export function some(arr, callback) {
+export function some<T>(arr: T[], callback: Function) {
   //遍历数组
   for (let i = 0; i < arr.length; i++) {
     // 执行回调 如果返回结果有一个是真

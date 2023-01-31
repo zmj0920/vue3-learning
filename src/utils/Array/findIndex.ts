@@ -4,7 +4,7 @@
  * @param  {Function} callback [description]
  * @return {[type]}            [description]
  */
-export function findIndex(arr, callback) {
+export function findIndex<T>(arr: T[], callback: Function) {
   // 遍历数组
   for (var i = 0; i < arr.length; i++) {
     // 执行回调

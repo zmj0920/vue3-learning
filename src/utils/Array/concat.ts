@@ -4,7 +4,7 @@
  * @param  {[type]} args [description]
  * @return {[type]}      [description]
  */
-export function concat(arr, ...args) {
+export function concat<T>(arr: T[], ...args: T[]) {
   // 声明一个空数组
   const result = [...arr];
   // 遍历数组
