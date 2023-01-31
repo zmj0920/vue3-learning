@@ -5,12 +5,12 @@
 <script setup lang="ts">
   import { ref, nextTick } from 'vue';
   const name = ref('沐华');
-  const test = ref();
+  const test = ref<HTMLElement | null>(null);
   async function handleClick() {
     name.value = '掘金';
-    console.log(test.value.innerText); // 沐华
+    console.log(test.value?.innerText); // 沐华
     await nextTick();
-    console.log(test.value.innerText); // 掘金
+    console.log(test.value?.innerText); // 掘金
   }
   return { name, test, handleClick };
 </script>

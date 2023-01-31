@@ -1,12 +1,17 @@
 <template>
   <div> rxjs </div>
   <div>{{ num }}</div>
+  <button @click="count++"> count is: {{ count }} </button>
 </template>
 
 <script setup lang="ts">
-  import { onDeactivated, onMounted, onUnmounted, reactive, ref } from 'vue';
+  import { onDeactivated, onMounted, onUnmounted, reactive, ref, watch } from 'vue';
   import { from, interval, Observable, timer, of, Subject, Subscription } from 'rxjs';
   import { map, switchMap, take } from 'rxjs/operators';
+  import { useSubject } from '@/hooks/rxjs/useSubject';
+  import { useSubscription } from '@/hooks/rxjs/useSubscription';
+  import { BehaviorSubject } from 'rxjs';
+  import { tryOnScopeDispose } from '@/hooks/rxjs/tryOnScopeDispose';
 
   const data = reactive([
     {
@@ -108,6 +113,9 @@
     next: (v) => console.log(`ObsB${v}`),
   });
 
+  const countSubject = new BehaviorSubject(0);
+  const count = useSubject(countSubject);
+
   onMounted(() => {
     $subject.next(1);
     $subject.next(2);
@@ -115,6 +123,13 @@
     getHeroes().subscribe((res) => {
       console.log(res[0].name);
     });
+
+    watch(count, (value) => console.info('from watcher:', value));
+    const subscription = countSubject.subscribe((value) =>
+      console.info('from subscriber: ', value),
+    );
+
+    useSubscription(subscription)
   });
 
   const heroes = reactive([
