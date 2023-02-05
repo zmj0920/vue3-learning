@@ -19,7 +19,7 @@
       <RouterLink to="/readOnly">ReadOnly</RouterLink>
       <RouterLink to="/shallowRef">ShallowRef</RouterLink>
       <RouterLink to="/toraw">toRaw</RouterLink>
-      
+      <RouterLink to="/pinia">pinia</RouterLink>
     </nav>
   </div>
   <div>

@@ -72,6 +72,11 @@ const router = createRouter({
       name: 'toraw',
       component: () => import('../views/ToRaw.vue'),
     },
+    {
+      path: '/pinia',
+      name: 'pinia',
+      component: () => import('../views/Pinia.vue'),
+    },
   ],
 });
 
