@@ -27,12 +27,12 @@
       }
 
       // 如果参数是 ref，则返回内部值 value，否则返回参数本身。这是 val = isRef(val) ? val.value : val 计算的一个语法糖。
-      const valueRef = ref('');
-      const value = unref(valueRef);
-      if (!value) {
-        console.log('请输入要拷贝的内容！');
-        return;
-      }
+      // const valueRef = ref('');
+      // const value = unref(valueRef);
+      // if (!value) {
+      //   console.log('请输入要拷贝的内容！');
+      //   return;
+      // }
 
       //返回一个对象
       return {

@@ -13,7 +13,7 @@
       //自定义ref(customRef)
       function myRef(value: string) {
         return customRef((track, trigger) => {
-          let timer: number | undefined;
+          let timer: any | undefined;
           return {
             get() {
               console.log(`从myRef这个容器读取数据,data:${value}`);

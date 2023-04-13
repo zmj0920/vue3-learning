@@ -20,6 +20,7 @@
       <RouterLink to="/shallowRef">ShallowRef</RouterLink>
       <RouterLink to="/toraw">toRaw</RouterLink>
       <RouterLink to="/pinia">pinia</RouterLink>
+      <RouterLink to="/layout">layout</RouterLink>
     </nav>
   </div>
   <div>

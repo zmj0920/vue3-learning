@@ -35,7 +35,7 @@
   };
 
   const debounce = (fn: Function, delay: number = 1000, immediately: boolean = true) => {
-    let timeId: number | null = null;
+    let timeId: any | null = null;
     // 返回一个函数
     return (...args: any[]) => {
       // 判断

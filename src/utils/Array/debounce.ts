@@ -6,7 +6,7 @@
  */
 
 export function debounce(fn: Function, delay = 1000, immediately = true) {
-  let timeId: number | null = null;
+  let timeId: any | null = null;
   // 返回一个函数
   return (...args: any[]) => {
     // 判断

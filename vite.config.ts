@@ -1,14 +1,15 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import path from 'node:path';
-import { viteMockServe } from 'vite-plugin-mock'
-//@ts-ignore
+import { resolve } from 'path';
+import { viteMockServe } from 'vite-plugin-mock';
 import viteCompression from 'vite-plugin-compression';
+
 
 // https://vitejs.dev/config/
 
 export default defineConfig((config) => {
-  const { command } = config
+  const { command } = config;
+  const isBuild = command === 'build';
   return {
     base: './', //打包路径
     plugins: [
@@ -23,13 +24,21 @@ export default defineConfig((config) => {
       }),
       viteMockServe({
         // 只在开发阶段开启 mock 服务
-        localEnabled: command === 'serve'
-      })
+        ignore: /^\_/,
+        mockPath: 'mock',
+        localEnabled: !isBuild,
+        prodEnabled: isBuild,
+        injectCode: `
+        import { setupProdMockServer } from '../mock/mockProdServer';
+
+        setupProdMockServer();
+          `,
+      }),
     ],
     // 配置别名
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src'),
+        '@': resolve(__dirname, 'src'),
       },
     },
     css: {
@@ -41,16 +50,26 @@ export default defineConfig((config) => {
     },
     //启动服务配置
     server: {
-      host: '0.0.0.0',
+      host: '127.0.0.1',
       port: 8000,
       open: true,
       https: false,
-      proxy: {},
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8000',
+          changeOrigin: true,
+          ws: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+      },
       hmr: true,
     },
     // 生产环境打包配置
     //去除 console debugger
     build: {
+      target: 'es2020',
+      outDir: 'dist',
+      assetsDir: 'assets',
       terserOptions: {
         compress: {
           drop_console: true,
@@ -58,5 +77,5 @@ export default defineConfig((config) => {
         },
       },
     },
-  }
-})
+  };
+});
