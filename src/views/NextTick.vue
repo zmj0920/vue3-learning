@@ -12,5 +12,4 @@
     await nextTick();
     console.log(test.value?.innerText); // 掘金
   }
-  return { name, test, handleClick };
 </script>

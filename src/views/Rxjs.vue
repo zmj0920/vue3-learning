@@ -2,6 +2,7 @@
   <div> rxjs </div>
   <div>{{ num }}</div>
   <button @click="count++"> count is: {{ count }} </button>
+  <!-- <div v-for="item in data" v-if="item.isActive" :key="item.id"> {{ item.id }}</div> -->
   {{ obj }}
 </template>
 
@@ -19,26 +20,31 @@ import { http } from '../utils/request';
 // 删除属性，不会自动变为响应式
 // delete obj.someProp;
 
-const data = reactive([
+const data: any = reactive([
   {
     id: 1,
     content: '内容1',
+    isActive: false,
   },
   {
     id: 2,
     content: '内容2',
+    isActive: true,
   },
   {
     id: 3,
     content: '内容3',
+    isActive: false,
   },
   {
     id: 4,
     content: '内容4',
+    isActive: true,
   },
   {
     id: 5,
     content: '内容5',
+    isActive: false,
   },
 ]);
 

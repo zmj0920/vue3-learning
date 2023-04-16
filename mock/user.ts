@@ -8,7 +8,7 @@ export default [
         code: 0,
         message: 'success',
         data: {
-          token: 'Token',
+          token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjpbeyJ0b29sdHQiOiJodHRwczovL3Rvb2x0dC5jb20ifV0sImlhdCI6MTY4MTYzMzM4MCwiZXhwIjotNTg2NjQ0MTk1NDQsImF1ZCI6IiIsImlzcyI6IjExMTEiLCJzdWIiOiIifQ.Pi4dFwSejyMzOrxs-QJumfGMn68NbgapumhvgIF_TXw',
         },
       };
     },
